@@ -347,8 +347,11 @@
                        (if plate-projection? fill-in ())
                        (if (and use-hotswap?
                                 (not use-alps?))
-                         hotswap-holder
-                         ())))))
+                         (union hotswap-holder (->> hotswap-holder
+                            (mirror [1 0 0])
+                            (mirror [0 1 0])))
+                         ())
+                       ))))
 ;;;;;;;;;;;;;;;;
 ;; SA Keycaps ;;
 ;;;;;;;;;;;;;;;;
